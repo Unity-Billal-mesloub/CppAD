@@ -9,15 +9,11 @@ set -e -u
 # Creates and check a release for the year and release number specified below.
 #
 # bin/check_all.sh [--skip_external_links]
-# is used by new_release.sh to check the stable branch
-# corresponding to this release (unless skipped by new_release.sh flags).
-#
-# bin/check_all.sh [--skip_external_links]
 # is used by new_release to skip checking external links.
 # new_release.sh skips this when testing before the new release (tag)  exists.
 # -----------------------------------------------------------------------------
-year='2025' # Year for this stable version
-release='3' # first release for each year starts with 0
+year='2026' # Year for this stable version
+release='0' # first release for each year starts with 0
 # -----------------------------------------------------------------------------
 if [ "$0" != 'bin/new_release.sh' ]
 then
@@ -127,11 +123,25 @@ fi
 #
 # stable_branch
 stable_branch=stable/$year
+
 #
 # stable_local_hash
+if ! git show-ref --hash "heads/$stable_branch" > /dev/null
+then
+    echo "Cannot find local version of $stable_branch. Do the following ?"
+    echo "git branch $stable_branch $main_branch"
+    exit 1
+fi
 stable_local_hash=$(git show-ref --hash "heads/$stable_branch" )
 #
 # stable_remote_hash
+if ! git show-ref --hash "origin/$stable_branch" > /dev/null
+then
+    echo "Cannot find remote version of $stable_branch. Do the following ?"
+    echo "git checkout $stable_branch"
+    echo "git push --set-upstream origin $stable_branch"
+    exit 1
+fi
 stable_remote_hash=$(git show-ref --hash "origin/$stable_branch" )
 #
 # main_local_hash
