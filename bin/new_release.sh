@@ -251,6 +251,10 @@ fi
 if ! bin/check_version.sh
 then
    echo 'Continuing even thought bin/check_version made changes.'
+    if ! bin/check_version.sh
+    then
+        echo 'Continuing even thought bin/check_version made more changes.'
+    fi
 fi
 #
 # check_all.sh
