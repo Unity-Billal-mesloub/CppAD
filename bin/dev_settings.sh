@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------
 # SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-or-later
 # SPDX-FileCopyrightText: Bradley M. Bell <bradbell@seanet.com>
-# SPDX-FileContributor: 2003-25 Bradley M. Bell
+# SPDX-FileContributor: 2003-26 Bradley M. Bell
 # SPDX-FileContributor: 2025 Perry de Valpine
 # ---------------------------------------------------------------------------
 # source bin/dev_settings.sh
@@ -89,6 +89,7 @@ no_copyright_list='
    cmake/cppad_uninstall.cmake
    coin.png
    epl-2.0.txt
+   typos.toml
    uw_copy_040507.html
    xrst.toml
 '
