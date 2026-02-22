@@ -3,9 +3,6 @@
 ## Documentation
 [users guide](https://cppad.readthedocs.io/latest/user_guide.html)
 
-## License
-SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-or-later
-
 ## Install
 
 - The preferred method to test and
